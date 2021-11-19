@@ -3,7 +3,7 @@ using System;
 
 namespace KataSupermarket
 {
-    class Discount : IDiscount
+    public class Discount : IDiscount
     {
         public String Code { get; }
         public float Quantity { get; }

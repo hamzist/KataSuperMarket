@@ -3,7 +3,7 @@ using System;
 
 namespace KataSupermarket.Interfaces
 {
-    interface IGood
+    public interface IGood
     {
         public String Code { get; }
         public String Name { get; }

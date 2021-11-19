@@ -4,7 +4,7 @@ using System;
 
 namespace KataSupermarket
 {
-    class Good : IGood
+    public class Good : IGood
     {
         public String Code { get; }
         public String Name { get; }

@@ -2,5 +2,5 @@
 
 namespace KataSupermarket.Config
 {
-    enum GoodUnit { Unit, Kilo, Meter }
+    public enum GoodUnit { Unit, Kilo, Meter }
 }
