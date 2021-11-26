@@ -29,7 +29,7 @@ namespace KataSupermarket
                 this._goods.Remove(this._goods.Where(x => x.Key.Code.Equals(good.Code)).FirstOrDefault().Key);
 
                 // Adding good with new quantity
-                this._goods.Add(good, quantity);
+                this._goods.Add(good, new_q);
             }
             else
             {
@@ -87,7 +87,7 @@ namespace KataSupermarket
                 }
                 else
                 {
-                    // If good has KG/Meter/... unit, add 1 item. We canont count the number of items in 1 KG for exp
+                    // If good has KG/Meter/... unit, add 1 item. We cannot count the number of items in 1 KG for exp
                     totalItems += 1;
                 }
             }
