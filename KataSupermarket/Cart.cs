@@ -51,7 +51,7 @@ namespace KataSupermarket
             // We return a copy of goods list to have original list only updatable by cart class
             return new Dictionary<IGood, float>(this._goods);
         }
-        
+
         public int GetTotalItems()
         {
             int totalItems = 0;

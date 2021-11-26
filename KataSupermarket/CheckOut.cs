@@ -29,7 +29,7 @@ namespace KataSupermarket
             Decimal totalPrice = 0;
 
             // Check goods
-            if(this._goods == null || this._goods.Count == 0)
+            if (this._goods == null || this._goods.Count == 0)
             {
                 return 0;
             }
@@ -44,7 +44,7 @@ namespace KataSupermarket
                     // No discount found
                     totalPrice += good.Key.Price * (Decimal)good.Value;
                 }
-                else if(discount.Quantity == 1)
+                else if (discount.Quantity == 1)
                 {
                     // Discount found on unit price. We use reduced price unstead of normal price
                     totalPrice += discount.TotalPrice * (Decimal)good.Value;
