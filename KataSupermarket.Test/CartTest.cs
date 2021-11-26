@@ -50,6 +50,7 @@ namespace KataSupermarket.Test
             Assert.Equal(0, this._cart.GetTotalItems());
         }
 
+        // Mandatory param "ExpectedTotalPrice" to use GoodsData, but the method is not to test TotalPrice
         [Theory, MemberData(nameof(GoodsData))]
         public void TestAddGood(IGood good, float quantity, int ExpectedTotalItems, Decimal ExpectedTotalPrice)
         {
