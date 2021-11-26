@@ -8,13 +8,9 @@ namespace KataSupermarket
 {
     public class Cart : ICart
     {
-        public int TotalItems { get { return this.GetTotalItems(); } }
-        public Decimal TotalPrice { get { return this.GetTotalPrice(); } }
-
-        public Cart(IList<IDiscount> discounts)
+        public Cart()
         {
             this._goods = new Dictionary<IGood, float>();
-            this._discounts = discounts;
         }
 
         public void AddGood(IGood good, float quantity)
@@ -50,31 +46,13 @@ namespace KataSupermarket
             return false;
         }
 
-        private Decimal GetTotalPrice()
+        public Dictionary<IGood, float> GetGoodsList()
         {
-            Decimal totalPrice = 0;
-
-            foreach (var good in this._goods)
-            {
-                // Check if a discount can be applied
-                IDiscount discount = this._discounts.Where(x => x.Code.Equals(good.Key.Code) && x.Quantity == good.Value).FirstOrDefault();
-
-                if (discount == null)
-                {
-                    // No discount found
-                    totalPrice += good.Key.Price * (Decimal)good.Value;
-                }
-                else
-                {
-                    // A discount can be applied
-                    totalPrice += discount.TotalPrice;
-                }
-            }
-
-            return totalPrice;
+            // We return a copy of goods list to have original list only updatable by cart class
+            return new Dictionary<IGood, float>(this._goods);
         }
-
-        private int GetTotalItems()
+        
+        public int GetTotalItems()
         {
             int totalItems = 0;
 
@@ -105,7 +83,5 @@ namespace KataSupermarket
         /// Value: good quantity
         /// </summary>
         private Dictionary<IGood, float> _goods;
-
-        private IList<IDiscount> _discounts;
     }
 }
